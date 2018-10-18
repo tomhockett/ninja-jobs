@@ -28,4 +28,24 @@ class JobTest < ActiveSupport::TestCase
     @job.description = "    "
     assert_not @job.valid?
   end
+
+  test "title should not be too long" do
+    @job.title = "a" * 51
+    assert_not @job.valid?
+  end
+
+  test "company name should not be too long" do
+    @job.company = "a" * 51
+    assert_not @job.valid?
+  end
+
+  test "location should not be too long" do
+    @job.location = "a" * 51
+    assert_not @job.valid?
+  end
+
+  test "description should not be too long" do
+    @job.description = "a" * 256
+    assert_not @job.valid?
+  end
 end
