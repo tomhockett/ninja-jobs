@@ -1,2 +1,114 @@
-<h1 style="text-align: center">Hello World!</h1>
-<p style="text-align: center">Click on <%= link_to 'Hello', page_path('hello') %> to get a wave!</p>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <h1 class="title is-title-1">
+      <span>Hot Pocket | </span>
+      <span>Jobs</span>
+      </h1>
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a href="" class="button is-danger">
+            Post a Job!
+          </a>
+          <a class="button is-primary">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light">
+            Log in
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="section hero-bg">
+  <div class="container">
+    <h1 class="title is-title-1">
+      Hire experts who know what's up and find aweomse jobs!
+    </h1>
+    <p class="subtitle">
+      Post a job
+    </p>
+    <p class="subtitle">
+      And we'll find experts for you!
+    </p>
+    <a href="" class="button is-primary">Post a job!</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div>
+      <h2 class="title is-3 job-title">Latest Jobs</h2>
+    </div>
+    <div class="job-table">
+      <ul>
+        <li>
+          <div class="card">
+            <div class="card-content">
+              <div class="content">
+                <span>
+                  <time datetime="2016-1-1">Date Posted</time>
+                </span>
+                <span>
+                  <h5 class="title is-5">Job title</h5>
+                </span>
+                <h6 class="subtitle is-6">
+                  <span class="icon is-small is-left"><%= icon('fas', 'briefcase') %></span>
+                  <span>Company</span>
+                </h6>
+                <h6 class="subtitle is-6">
+                  <span class="icon is-small is-left"><%= icon('fas', 'map-marker-alt') %></span>
+                  <span>Location</span>
+                </h6>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li>
+          <div class="card">
+            <div class="card-content">
+              <div class="content">
+                <span>
+                  <time datetime="2016-1-1">Date Posted</time>
+                </span>
+                <span>
+                  <h5 class="title is-5">Job title</h5>
+                </span>
+                <h6 class="subtitle is-6">
+                  <span class="icon is-small is-left"><%= icon('fas', 'briefcase') %></span>
+                  <span>Company</span>
+                </h6>
+                <h6 class="subtitle is-6">
+                  <span class="icon is-small is-left"><%= icon('fas', 'map-marker-alt') %></span>
+                  <span>Location</span>
+                </h6>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="containter">
+    <div class="content has-text-centered">
+      <p>Made by Tom Hockett</p>
+    </div>
+  </div>
+</footer>
