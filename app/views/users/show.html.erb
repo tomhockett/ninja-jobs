@@ -1,0 +1,7 @@
+<% content_for(:page_title, @user.name)%>
+<div class="container">
+  <h1>
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+  </h1>
+</div>
