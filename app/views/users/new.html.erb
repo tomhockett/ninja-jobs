@@ -3,7 +3,7 @@
   <div class="container">
     <div class="title is-1 text-is-centered">Sign up 👨🏻‍💻</div>
 
-    <%= form_for(@user) do |f| %>
+    <%= form_for(@user, url: signup_path) do |f| %>
       <div class="field">
         <%= f.label :name, class: 'label' %>
         <div class="control">
