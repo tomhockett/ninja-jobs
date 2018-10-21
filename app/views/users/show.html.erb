@@ -1,7 +1,15 @@
 <% content_for(:page_title, @user.name)%>
 <div class="container">
+  <div class="notification">
+    <%= gravatar_for @user %>
+    <%= @user.name %>
+  </div>
+</div>
+<!--
+<div class="container">
   <h1>
     <%= gravatar_for @user %>
     <%= @user.name %>
   </h1>
 </div>
+-->
