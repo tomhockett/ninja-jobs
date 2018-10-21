@@ -12,6 +12,9 @@
 
   <body>
     <%= render  'layouts/header' %>
+    <% flash.each do |message_type, message| %>
+      <%= content_tag(:div, message, class: "notification is#{message_type} has-text-centered") %>
+    <% end %>
     <%= yield %>
     <%= render  'layouts/footer' %>
     <%= debug(params) if Rails.env.development? %>
