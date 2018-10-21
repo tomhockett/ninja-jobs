@@ -1,20 +1,20 @@
 <% content_for(:page_title, 'Welcome!')%>
 <div class="section">
   <div class="container">
-    <div class="title is-1">Sign up</div>
+    <div class="title is-1 text-is-centered">Sign up</div>
 
     <%= form_for(@user) do |f| %>
       <div class="field">
         <%= f.label :name, class: 'label' %>
         <div class="control">
-          <%= f.text_field :name, class: 'input', placeholder: "e.g. Alex Smith" %>
+          <%= f.text_field :name, class: 'input', placeholder: "e.g. Hattori Hanzo" %>
         </div>
       </div>
     
       <div class="field">
         <%= f.label :email, class: 'label' %>
         <div class="control">
-          <%= f.email_field :email, class: 'input', placeholder: "e.g. alex.smith@gmail.com" %>
+          <%= f.email_field :email, class: 'input', placeholder: "e.g. hattori.hanzo@iga.com" %>
         </div>
       </div>
     
