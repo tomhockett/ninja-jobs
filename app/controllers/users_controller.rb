@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      # This method is in sessions_helper.rb.
+      log_in @user
       flash[:success] = 'Welcome to Ninja Jobs!'
       redirect_to @user
     else
