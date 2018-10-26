@@ -1,0 +1,55 @@
+<%= form_for(@user) do |f| %>
+  <div class="field">
+    <%= f.label :name, class: 'label' %>
+    <div class="control">
+      <%= f.text_field :name, class: "#{@user.errors[:name].any? ? 'input is-danger' : 'input'}" %>
+    </div>
+    <% if @user.errors[:name].any? %>
+      <% @user.errors.full_messages_for(:name).each do |msg| %>
+        <p class="help is-danger"><%= msg %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, class: 'label' %>
+    <div class="control">
+      <%= f.email_field :email, class: "#{@user.errors[:email].any? ? 'input is-danger' : 'input'}" %>
+    </div>
+    <% if @user.errors[:email].any? %>
+      <% @user.errors.full_messages_for(:email).each do |msg| %>
+        <p class="help is-danger"><%= msg %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, class: 'label' %>
+    <div class="control">
+      <%= f.password_field :password, class: "#{@user.errors[:password].any? ? 'input is-danger' : 'input'}" %>
+    </div>
+    <% if @user.errors[:password].any? %>
+      <% @user.errors.full_messages_for(:password).each do |msg| %>
+        <p class="help is-danger"><%= msg %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, "Confirmation", class: 'label' %>
+    <div class="control">
+      <%= f.password_field :password_confirmation, class: "#{@user.errors[:password_confirmation].any? ? 'input is-danger' : 'input'}" %>
+    </div>
+    <% if @user.errors[:password_confirmation].any? %>
+      <% @user.errors.full_messages_for(:password_confirmation).each do |msg| %>
+        <p class="help is-danger"><%= msg %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= f.submit yield(:button_text), class: 'button is-primary' %>
+    </div>
+  </div>
+<% end %>

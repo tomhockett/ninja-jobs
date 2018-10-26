@@ -1,62 +1,8 @@
-<% content_for(:page_title, 'Welcome!')%>
+<% content_for(:page_title, 'Welcome!') %>
+<% content_for(:button_text, 'Create my account') %>
 <div class="section">
   <div class="container">
     <div class="title is-1 has-text-centered">Sign up 👨🏻‍💻</div>
-
-    <%= form_for(@user, url: signup_path) do |f| %>
-      <div class="field">
-        <%= f.label :name, class: 'label' %>
-        <div class="control">
-          <%= f.text_field :name, class: "#{@user.errors[:name].any? ? 'input is-danger' : 'input'}", placeholder: "e.g. Hattori Hanzo" %>
-        </div>
-        <% if @user.errors[:name].any? %>
-          <% @user.errors.full_messages_for(:name).each do |msg| %>
-            <p class="help is-danger"><%= msg %></p>
-          <% end %>
-        <% end %>
-      </div>
-    
-      <div class="field">
-        <%= f.label :email, class: 'label' %>
-        <div class="control">
-          <%= f.email_field :email, class: "#{@user.errors[:email].any? ? 'input is-danger' : 'input'}", placeholder: "e.g. hattori.hanzo@iga.com" %>
-        </div>
-        <% if @user.errors[:email].any? %>
-          <% @user.errors.full_messages_for(:email).each do |msg| %>
-            <p class="help is-danger"><%= msg %></p>
-          <% end %>
-        <% end %>
-      </div>
-    
-      <div class="field">
-        <%= f.label :password, class: 'label' %>
-        <div class="control">
-          <%= f.password_field :password, class: "#{@user.errors[:password].any? ? 'input is-danger' : 'input'}" %>
-        </div>
-        <% if @user.errors[:password].any? %>
-          <% @user.errors.full_messages_for(:password).each do |msg| %>
-            <p class="help is-danger"><%= msg %></p>
-          <% end %>
-        <% end %>
-      </div>
-    
-      <div class="field">
-        <%= f.label :password_confirmation, "Confirmation", class: 'label' %>
-        <div class="control">
-          <%= f.password_field :password_confirmation, class: "#{@user.errors[:password_confirmation].any? ? 'input is-danger' : 'input'}" %>
-        </div>
-       <% if @user.errors[:password_confirmation].any? %>
-          <% @user.errors.full_messages_for(:password_confirmation).each do |msg| %>
-            <p class="help is-danger"><%= msg %></p>
-          <% end %>
-        <% end %>
-      </div>
-    
-      <div class="field">
-        <div class="control">
-          <%= f.submit "Create my account", class: 'button is-primary' %>
-        </div>
-      </div>
-    <% end %>
+    <%= render 'form' %>
   </div>
 </div>
