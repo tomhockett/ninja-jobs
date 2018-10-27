@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if user&.authenticate(params[:session][:password])
       # This method is in sessions_helper.rb
       log_in user
-      redirect_to user
+      redirect_back_or user
     else
       # contents of flash.now disappear upon an additional request
       flash.now[:danger] = 'Invalid email/password combination'
