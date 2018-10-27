@@ -1,9 +1,43 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
+  before_action :admin_user, only: :destroy
 
   def index
     @users = User.paginate(page: params[:page])
+    #TODO: Write a custom link renderer for the ApplicationHelper
+    @custom_renderer = Class.new(WillPaginate::ActionView::LinkRenderer) do
+      def container_attributes
+        { class: "pagination", role: "navigation", 'aria-label': "pagination"}
+      end
+
+      def html_container(html)
+        tag(:nav, html, container_attributes)
+      end
+
+      def page_number(page)
+        if page == current_page
+          link(page, page, class: 'pagination-link is-current')
+        else
+          link(page, page, class: 'pagination-link', rel: rel_value(page))
+        end
+      end
+
+      def gap
+        text = @template.will_paginate_translate(:page_gap) { '&hellip;' }
+        %(<span class="pagination-ellipsis">#{text}</span>)
+      end
+
+      def previous_page
+        num = @collection.current_page > 1 && @collection.current_page - 1
+        previous_or_next_page(num, @options[:previous_label], 'pagination-previous')
+      end
+
+      def next_page
+        num = @collection.current_page < total_pages && @collection.current_page + 1
+        previous_or_next_page(num, @options[:next_label], 'pagination-next')
+      end
+    end
   end
 
   def show
@@ -40,6 +74,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to users_url
+  end
+
   private
 
   def user_params
@@ -61,5 +101,10 @@ class UsersController < ApplicationController
   def correct_user
     @user = User.find(params[:id])
     redirect_to(root_url) unless current_user?(@user)
+  end
+
+  # Confirms the admin user.
+  def admin_user
+    redirect_to(root_url) unless current_user.admin?
   end
 end

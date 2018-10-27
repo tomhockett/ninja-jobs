@@ -1,13 +1,8 @@
 <% content_for(:page_title, 'All users') %>
 <h1>All users</h1>
 
-<%= will_paginate %>
+<%= will_paginate @users, renderer: @custom_renderer %>
 <ul class="users">
-  <% @users.each do |user| %>
-    <li>
-      <%= gravatar_for user, size: 50 %>
-      <%= link_to user.name, user %>
-    </li>
-  <% end %>
+  <%= render @users %>
 </ul>
-<%= will_paginate %>
+<%= will_paginate @users, renderer: @custom_renderer %>
