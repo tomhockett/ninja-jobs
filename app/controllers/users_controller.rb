@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.paginate(page: params[:page])
-    #TODO: Write a custom link renderer for the ApplicationHelper
+    # TODO: Write a custom link renderer for the ApplicationHelper
     @custom_renderer = Class.new(WillPaginate::ActionView::LinkRenderer) do
       def container_attributes
         { class: "pagination", role: "navigation", 'aria-label': "pagination"}
