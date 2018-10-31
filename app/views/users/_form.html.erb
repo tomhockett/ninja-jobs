@@ -2,11 +2,11 @@
   <div class="field">
     <%= f.label :name, class: 'label' %>
     <div class="control">
-      <%= f.text_field :name, class: "#{@user.errors[:name].any? ? 'input is-danger' : 'input'}" %>
+      <%= f.text_field :name, class: "input #{'is-danger' if  @user.errors[:name].any?}" %>
     </div>
     <% if @user.errors[:name].any? %>
-      <% @user.errors.full_messages_for(:name).each do |msg| %>
-        <p class="help is-danger"><%= msg %></p>
+      <% @user.errors.full_messages_for(:name).each do |error| %>
+        <p class="help is-danger"><%= error %></p>
       <% end %>
     <% end %>
   </div>
@@ -14,11 +14,11 @@
   <div class="field">
     <%= f.label :email, class: 'label' %>
     <div class="control">
-      <%= f.email_field :email, class: "#{@user.errors[:email].any? ? 'input is-danger' : 'input'}" %>
+      <%= f.email_field :email, class: "input #{'is-danger' if  @user.errors[:email].any?}" %>
     </div>
     <% if @user.errors[:email].any? %>
-      <% @user.errors.full_messages_for(:email).each do |msg| %>
-        <p class="help is-danger"><%= msg %></p>
+      <% @user.errors.full_messages_for(:email).each do |error| %>
+        <p class="help is-danger"><%= error %></p>
       <% end %>
     <% end %>
   </div>
@@ -26,11 +26,11 @@
   <div class="field">
     <%= f.label :password, class: 'label' %>
     <div class="control">
-      <%= f.password_field :password, class: "#{@user.errors[:password].any? ? 'input is-danger' : 'input'}" %>
+      <%= f.password_field :password, class: "input #{'is-danger' if  @user.errors[:password].any?}" %>
     </div>
     <% if @user.errors[:password].any? %>
-      <% @user.errors.full_messages_for(:password).each do |msg| %>
-        <p class="help is-danger"><%= msg %></p>
+      <% @user.errors.full_messages_for(:password).each do |error| %>
+        <p class="help is-danger"><%= error %></p>
       <% end %>
     <% end %>
   </div>
@@ -38,11 +38,11 @@
   <div class="field">
     <%= f.label :password_confirmation, "Confirmation", class: 'label' %>
     <div class="control">
-      <%= f.password_field :password_confirmation, class: "#{@user.errors[:password_confirmation].any? ? 'input is-danger' : 'input'}" %>
+      <%= f.password_field :password_confirmation, class: "input #{'is-danger' if  @user.errors[:password_confirmation].any?}" %>
     </div>
     <% if @user.errors[:password_confirmation].any? %>
-      <% @user.errors.full_messages_for(:password_confirmation).each do |msg| %>
-        <p class="help is-danger"><%= msg %></p>
+      <% @user.errors.full_messages_for(:password_confirmation).each do |error| %>
+        <p class="help is-danger"><%= error %></p>
       <% end %>
     <% end %>
   </div>
