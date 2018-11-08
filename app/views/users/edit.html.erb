@@ -1,12 +1,19 @@
 <% content_for(:page_title, 'Edit user') %>
 <% content_for(:button_text, 'Save changes') %>
-<div class="section">
-  <div class="container">
-    <div class="title is-1 has-text-centered">Update your profile 👨🏻‍💻</div>
-    <%= render 'form' %>
-    <div class="gravatar_edit">
-      <%= gravatar_for @user %>
-      <a href="http://gravatar.com/emails" target="_blank" rel="noopener">change</a>
+<section class="hero is-primary is-bold is-fullheight-with-navbar">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-5-tablet is-4-desktop is-4-widescreen">
+          <%= render 'form' %>
+          <div class="gravatar_edit">
+            <%= gravatar_for @user %>
+            <a href="http://gravatar.com/emails" target="_blank" rel="noopener">change</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
+
+

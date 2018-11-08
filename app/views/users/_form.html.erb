@@ -1,8 +1,12 @@
-<%= form_for(@user) do |f| %>
+<%= form_for(@user, html: { class: 'box' }) do |f| %>
+  <div class="field has-text-centered">
+    <%= image_tag('ninja_logo.png', alt: 'ninja logo')%>
+  </div>
   <div class="field">
     <%= f.label :name, class: 'label' %>
-    <div class="control">
-      <%= f.text_field :name, class: "input #{'is-danger' if  @user.errors[:name].any?}" %>
+    <div class="control has-icons-left">
+      <%= f.text_field :name, class: "input #{'is-danger' if  @user.errors[:name].any?}", placeholder: "e.g. Hatori Hanzo" %>
+      <span class="icon is-small is-left"><i class="fa fa-user"></i></span>
     </div>
     <% if @user.errors[:name].any? %>
       <% @user.errors.full_messages_for(:name).each do |error| %>
@@ -13,8 +17,9 @@
 
   <div class="field">
     <%= f.label :email, class: 'label' %>
-    <div class="control">
-      <%= f.email_field :email, class: "input #{'is-danger' if  @user.errors[:email].any?}" %>
+    <div class="control has-icons-left">
+      <%= f.email_field :email, class: "input #{'is-danger' if  @user.errors[:email].any?}", placeholder: "hatori@hanzo.net" %>
+      <span class="icon is-small is-left"><i class="fa fa-envelope"></i></span>
     </div>
     <% if @user.errors[:email].any? %>
       <% @user.errors.full_messages_for(:email).each do |error| %>
@@ -25,8 +30,9 @@
 
   <div class="field">
     <%= f.label :password, class: 'label' %>
-    <div class="control">
-      <%= f.password_field :password, class: "input #{'is-danger' if  @user.errors[:password].any?}" %>
+    <div class="control has-icons-left">
+      <%= f.password_field :password, class: "input #{'is-danger' if  @user.errors[:password].any?}", placeholder: "*********" %>
+      <span class="icon is-small is-left"><i class="fa fa-lock"></i></span>
     </div>
     <% if @user.errors[:password].any? %>
       <% @user.errors.full_messages_for(:password).each do |error| %>
@@ -37,8 +43,9 @@
 
   <div class="field">
     <%= f.label :password_confirmation, "Confirmation", class: 'label' %>
-    <div class="control">
-      <%= f.password_field :password_confirmation, class: "input #{'is-danger' if  @user.errors[:password_confirmation].any?}" %>
+    <div class="control has-icons-left">
+      <%= f.password_field :password_confirmation, class: "input #{'is-danger' if  @user.errors[:password_confirmation].any?}", placeholder: "*********" %>
+      <span class="icon is-small is-left"><i class="fa fa-lock"></i></span>
     </div>
     <% if @user.errors[:password_confirmation].any? %>
       <% @user.errors.full_messages_for(:password_confirmation).each do |error| %>
