@@ -3,12 +3,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user&.authenticate(params[:session][:password])
-      if user.activated?
-        # This method is in sessions_helper.rb
-        log_in user
-        redirect_back_or user
+    @user = User.find_by(email: params[:session][:email].downcase)
+    if @user&.authenticate(params[:session][:password])
+      if @user.activated?
+        # These methods are in sessions_helper.rb
+        log_in @user
+        params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
+        redirect_back_or @user
       else
         message = "Account not activated. "
         message += "Check your email for the activation link."
@@ -24,7 +25,7 @@ class SessionsController < ApplicationController
 
   def destroy
     # This method is also in sessions_helper.rb
-    log_out
+    log_out if logged_in?
     redirect_to root_url
   end
 end
