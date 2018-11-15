@@ -1,8 +1,76 @@
 <% content_for(:page_title, 'All users') %>
-<h1>All users</h1>
+<section class="section">
+  <div class="columns">
+    <div class="column is-4-tablet is-3-desktop is-2-widescreen">
+      <%= render 'layouts/sidebar' %>
+    </div>
+  
+    <div class="column">
+      <h1 class="title">Users</h1>
+  
+      <nav class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <p class="subtitle is-5">
+            <strong><%= User.count %></strong> Users
+            </p>
+          </div> <!-- Level item -->
+  
+          <p class="level-item">
+            <%= link_to 'New', signup_path, class: "button is-success" %>
+          </p> <!-- Level item -->
+  
+          <div class="level-item is-hidden-tablet-only">
+            <div class="field has-addons">
+              <p class="control"><input type="text" class="input" placeholder="User name . . ."></p>
+              <p class="control"><button class="button">Search</button></p>
+            </div>
+          </div> <!-- Level item -->
+        </div> <!-- Level left -->
+  
+        <div class="level-right">
+          <div class="level-item">
+            Order by
+          </div>
+          <div class="level-item">
+            <div class="select">
+              <select>
+                <option>Name</option>
+                <option>Date joined</option>
+                <option>Number of jobs</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </nav> <!-- Level -->
 
-<%= will_paginate @users, renderer: @custom_renderer %>
-<ul class="users">
-  <%= render @users %>
-</ul>
-<%= will_paginate @users, renderer: @custom_renderer %>
+      <table class="table is-hoverable is-fullwidth">
+        <thead>
+          <tr>
+            <th class="is-narrow"><input type="checkbox"></th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Clan</th>
+            <th>Jobs</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th class="is-narrow"><input type="checkbox"></th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Clan</th>
+            <th>Jobs</th>
+            <th>Actions</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          <tr><%= will_paginate @users, renderer: @custom_renderer %></tr>
+          <%= render @users %>
+          
+        </tbody>
+      </table>
+    </div> <!-- Column -->
+  </div>
+</section>
