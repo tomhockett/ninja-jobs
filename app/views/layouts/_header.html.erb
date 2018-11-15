@@ -1,41 +1,48 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
-      <h1 class="title is-title-1">
-      <span><%= logged_in? ? '🌚' : '🌞' %> Ninja | </span>
-      <span class="text-is-cursive">Jobs</span>
+      <h1 class="title is-title-1" style="color: white;">
+        <span><%= logged_in? ? '🌚' : '🌞' %> Ninja | </span>
+        <span class="text-is-cursive">Jobs</span>
       </h1>
     </a>
 
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div class="navbar-menu" id="navMenu">
     <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <%# This method is located in sessions_helper.rb %>
-          <% if logged_in? %>
-            <a href="" class="button is-danger">
-              Post a Job!
-            </a>
-            <%= link_to "Users", users_path, class: "button is-warning" %>
-            <%= link_to "Settings", edit_user_path(current_user), class: "button is-link" %>
-            <%= link_to "Log out", logout_path, class: "button is-black", method: :delete %>
-          <% else %>
-            <a href="/login" class="button is-primary">
-              Log in
-            </a>
-            <a href="/signup" class="button is-primary">
-              <strong>Sign up</strong>
-            </a>
-          <% end %>
+      <%# This method is located in the sessions_helper fuile %>
+      <% if logged_in? %>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <div class="navbar-link">
+            <%= current_user.name %>
+          </div>
+          <div class="navbar-dropdown">
+            <%= link_to edit_user_path(current_user), class: "navbar-item" do %>
+              <div><span class="icon is-small"><i class="fa fa-user-circle" style="margin-right: 15px;"></i></span>Edit Profile</div>
+            <% end %>
+            <%= link_to users_path, class: "navbar-item" do %>
+              <div><span class="icon is-small"><i class="fa fa-users" style="margin-right: 15px;"></i></span>Users</div>
+            <% end %>
+            <hr class="navbar-divider">
+            <%= link_to logout_path, class: "navbar-item", method: :delete do %>
+              <div><span class="icon is-small"><i class="fa fa-trash-alt" style="margin-right: 15px;"></i></span>Sign Out</div>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% else %>
+        <div class="navbar-item">
+          <div class="buttons">
+            <%= link_to 'Log in', login_path, class: "button is-primary" %>
+            <%= link_to 'Sign up', signup_path, class: "button is-primary" %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </nav>
