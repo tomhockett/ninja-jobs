@@ -1,7 +1,7 @@
 <% content_for(:page_title, 'All users') %>
 <section class="section">
   <div class="columns">
-    <div class="column is-4-tablet is-3-desktop is-2-widescreen">
+    <div class="column is-2-tablet is-3-desktop is-2-widescreen">
       <%= render 'layouts/sidebar' %>
     </div>
   
@@ -44,6 +44,8 @@
         </div>
       </nav> <!-- Level -->
 
+      <%= will_paginate @users, renderer: @custom_renderer %>
+
       <table class="table is-hoverable is-fullwidth">
         <thead>
           <tr>
@@ -66,11 +68,11 @@
           </tr>
         </tfoot>
         <tbody>
-          <tr><%= will_paginate @users, renderer: @custom_renderer %></tr>
           <%= render @users %>
-          
         </tbody>
       </table>
+      
+      <%= will_paginate @users, renderer: @custom_renderer %>
     </div> <!-- Column -->
   </div>
 </section>
