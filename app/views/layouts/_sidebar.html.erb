@@ -1,38 +1,31 @@
 <aside class="menu">
   <p class="menu-label">
-    <ul class="menu-list">
-      <li>
-        <%= link_to root_url do %>
-          <span class="icon">
-            <i class="fa fa-tachometer"></i>
-          </span>
-          Dashboard
-        <% end %>
-      </li>
-      <li>
-        <%= link_to root_url do %>
-          <span class="icon">
-            <i class="fa fa-book"></i>
-          </span>
-          Jobs
-        <% end %>
-      </li>
-      <li>
-        <%= link_to root_url do %>
-          <span class="icon">
-            <i class="fa fa-address-book"></i>
-          </span>
-          Users
-        <% end %>
-      </li>
-      <li>
-        <%= link_to root_url do %>
-          <span class="icon">
-            <i class="fa fa-file-text"></i>
-          </span>
-          Log out
-        <% end %>
-      </li>
-    </ul>
+    Dashboard
   </p>
+  <ul class="menu-list">
+    <li>
+      <%= link_to root_url do %>
+        <span class="icon">
+          <i class="fa fa-book"></i>
+        </span>
+        Jobs
+      <% end %>
+    </li>
+    <li>
+      <%= link_to root_url, class: "is-active" do %>
+        <span class="icon">
+          <i class="fa fa-address-book"></i>
+        </span>
+        Users
+      <% end %>
+    </li>
+    <li>
+      <%= link_to logout_path, method: :delete do %>
+        <span class="icon">
+          <i class="fa fa-sign-out-alt"></i>
+        </span>
+        Log out
+      <% end %>
+    </li>
+  </ul>
 </aside>
