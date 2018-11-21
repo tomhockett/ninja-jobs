@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.where(activated: true).paginate(page: params[:page])
-    # TODO: Write a custom link renderer for the ApplicationHelper
     @custom_renderer = custom_pagination_renderer
   end
 

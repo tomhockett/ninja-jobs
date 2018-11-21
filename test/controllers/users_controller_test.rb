@@ -23,7 +23,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to login_url
   end
 
-  #TODO: Fix this test!
   test "should not allow the admin attribute to be edited via the web" do
     log_in_as(@other_user)
     assert_not @other_user.admin?

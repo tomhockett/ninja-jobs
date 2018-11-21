@@ -22,7 +22,6 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_redirected_to @user
     follow_redirect!
     assert_template 'users/show'
-    # TODO: add links here!
     assert_select "a[href=?]", logout_path
     delete logout_path
     assert_not is_logged_in?
