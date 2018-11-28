@@ -1,7 +1,31 @@
 <% content_for(:page_title, @user.name)%>
-<div class="container">
-  <div class="notification">
-    <%= gravatar_for @user %>
-    <%= @user.name %>
+<section class="section">
+  <div class="columns">
+    <div class="column is-2-tablet is-3-desktop is-2-widescreen">
+      <%= render 'layouts/sidebar' %>
+    </div>
+
+    <div class="column">
+      <article class="box">
+        <div class="media">
+          <aside class="media-left">
+            <%= gravatar_for @user %>
+          </aside>
+          <div class="media-content">
+            <p class="title is-5 is-spaced is-marginless">
+              <%= @user.name %>
+            </p>
+            <p class="subtitle is-marginless">
+              Yiga
+            </p>
+            <div class="content is-small">
+              <%= @user.jobs.count %> jobs posted
+              <br>
+              <%= mail_to @user.email %>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
   </div>
-</div>
+</section>

@@ -3,7 +3,6 @@ require 'test_helper'
 class JobTest < ActiveSupport::TestCase
   def setup
     @user = users(:michael)
-    # This code is not idiomatically correct.
     @job = @user.jobs.build(title: "Lorem ipsum", description: "blah blah blah")
   end
 
