@@ -1,0 +1,15 @@
+<% content_for(:page_title, "#{@job.title}") %>
+<section class="section">
+  <div class="columns">
+    <div class="column is-2-tablet is-3-desktop is-2-widescreen">
+      <%= render 'layouts/sidebar' %>
+    </div>
+  
+    <div class="column">
+      <h1 class="title"><%= @job.title.capitalize %></h1>
+  
+      <%= render @job %>
+
+    </div> <!-- Column -->
+  </div>
+</section>

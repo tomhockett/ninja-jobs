@@ -1,20 +1,20 @@
-<div class="card">
+<div class="card job-card">
   <header class="card-header">
     <div class="card-header-title">
-      Job Title
+      <%= job.title.capitalize %>
     </div>
-    
   </header>
+
   <div class="card-content">
-    <div class="content">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, obcaecati hic? Quaerat esse explicabo consectetur temporibus sapiente cum autem ut . . .
+    <div class="content is-small">
+      <%= job.description %>
       <br>
-      <br>
-      <p>Posted 2 days ago</p>
+      <p>Posted <%= time_ago_in_words(job.created_at) %> ago.</p>
     </div>
   </div>
+
   <footer class="card-footer">
-    <a class="card-footer-item">See Full Listing</a>
+    <a class="card-footer-item">View</a>
     <a class="card-footer-item">Edit</a>
     <a class="card-footer-item">Delete</a>
   </footer>
