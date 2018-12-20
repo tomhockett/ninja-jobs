@@ -4,7 +4,7 @@
   </p>
   <ul class="menu-list">
     <li>
-      <%= link_to root_url do %>
+      <%= link_to jobs_path, class: "#{'is-active' if content_for?(:jobs_toggle)}" do %>
         <span class="icon">
           <i class="fa fa-book"></i>
         </span>
@@ -12,7 +12,7 @@
       <% end %>
     </li>
     <li>
-      <%= link_to users_path, class: "is-active" do %>
+      <%= link_to users_path, class: "#{'is-active' if content_for?(:users_toggle)}" do %>
         <span class="icon">
           <i class="fa fa-address-book"></i>
         </span>

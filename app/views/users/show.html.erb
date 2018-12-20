@@ -26,6 +26,15 @@
           </div>
         </div>
       </article>
+      
+      <div class="columns is-multiline">
+        <%= render @jobs do |job| %>
+          <div class="column is-12-tablet is-8-desktop is-6-widescreen">
+            <%= job %>
+          </div>
+        <% end %>
+      </div>
     </div>
+
   </div>
 </section>

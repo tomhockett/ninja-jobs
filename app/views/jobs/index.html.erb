@@ -1,5 +1,5 @@
-<% content_for(:page_title, 'All users') %>
-<% content_for(:users_toggle, true)%>
+<% content_for(:page_title, 'All Jobs') %>
+<% content_for(:jobs_toggle, true) %>
 <section class="section">
   <div class="columns">
     <div class="column is-2-tablet is-3-desktop is-2-widescreen">
@@ -7,13 +7,13 @@
     </div>
   
     <div class="column">
-      <h1 class="title">Users</h1>
+      <h1 class="title">Jobs</h1>
   
       <nav class="level">
         <div class="level-left">
           <div class="level-item">
             <p class="subtitle is-5">
-            <strong><%= User.count %></strong> Users
+            <strong><%= Job.count %></strong> Jobs Posted
             </p>
           </div> <!-- Level item -->
   
@@ -23,7 +23,7 @@
   
           <div class="level-item is-hidden-tablet-only">
             <div class="field has-addons">
-              <p class="control"><input type="text" class="input" placeholder="User name . . ."></p>
+              <p class="control"><input type="text" class="input" placeholder="Job title . . ."></p>
               <p class="control"><button class="button">Search</button></p>
             </div>
           </div> <!-- Level item -->
@@ -44,36 +44,14 @@
           </div>
         </div>
       </nav> <!-- Level -->
+      <div class="columns is-multiline">
+        <%= render @jobs do |job| %>
+          <div class="column is-12-tablet is-8-desktop is-6-widescreen">
+            <%= job %>
+          </div>
+        <% end %>
+      </div>
 
-      <%= will_paginate @users, renderer: @custom_renderer %>
-
-      <table class="table is-hoverable is-fullwidth">
-        <thead>
-          <tr>
-            <th class="is-narrow"><input type="checkbox"></th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Clan</th>
-            <th>Jobs</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tfoot>
-          <tr>
-            <th class="is-narrow"><input type="checkbox"></th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Clan</th>
-            <th>Jobs</th>
-            <th>Actions</th>
-          </tr>
-        </tfoot>
-        <tbody>
-          <%= render @users %>
-        </tbody>
-      </table>
-      
-      <%= will_paginate @users, renderer: @custom_renderer %>
     </div> <!-- Column -->
   </div>
 </section>
