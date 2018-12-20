@@ -178,11 +178,7 @@ GEM
       fog-core (>= 1.45, <= 2.1.0)
       fog-json (>= 1.0)
       ipaddress (>= 0.8)
-<<<<<<< HEAD
-    fog-ovirt (1.1.3)
-=======
     fog-ovirt (1.1.4)
->>>>>>> layout-with-bulma
       fog-core
       fog-json
       fog-xml
@@ -259,7 +255,7 @@ GEM
       minitest (>= 3.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    i18n (1.2.0)
+    i18n (1.3.0)
       concurrent-ruby (~> 1.0)
     ipaddress (0.8.3)
     jbuilder (2.8.0)
@@ -282,7 +278,7 @@ GEM
     mime-types (3.2.2)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2018.0812)
-    mimemagic (0.3.2)
+    mimemagic (0.3.3)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
