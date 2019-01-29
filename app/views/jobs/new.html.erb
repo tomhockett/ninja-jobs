@@ -1,0 +1,18 @@
+<% content_for(:page_title, 'New Job Listing') %>
+<% content_for(:button_text, 'Post this Job') %>
+<section class="hero is-primary is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-7-tablet is-6-desktop is-7-widescreen">
+          <div class="box">
+            <figure class="avatar has-text-centered">
+              <%= image_tag('ninja_logo.png', alt: 'ninja logo')%>
+            </figure>
+            <%= render 'jobform' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

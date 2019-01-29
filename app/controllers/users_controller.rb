@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  # :logged_in_user is available here because we defined it in the ApplicaitonController.
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy

@@ -1,0 +1,32 @@
+<%= form_for(@job, html: { class: 'box' }) do |f| %>
+  <div class="field">
+    <%= f.label :title, class: 'label' %>
+    <div class="control has-icons-left">
+      <%= f.text_field :title, class: "input #{'is-danger' if  @job.errors[:title].any?}", placeholder: "e.g. Pizza Delivery" %>
+      <span class="icon is-small is-left"><i class="fa fa-clipboard"></i></span>
+    </div>
+    <% if @job.errors[:title].any? %>
+      <% @job.errors.full_messages_for(:title).each do |error| %>
+        <p class="help is-danger"><%= error %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, class: 'label' %>
+    <div class="control has-icons-left">
+      <%= f.text_area :description, class: "textarea #{'is-danger' if  @job.errors[:description].any?}", placeholder: "A long time ago . . ." %>
+    </div>
+    <% if @job.errors[:description].any? %>
+      <% @job.errors.full_messages_for(:description).each do |error| %>
+        <p class="help is-danger"><%= error %></p>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <div class="control">
+      <%= f.submit yield(:button_text), class: 'button is-primary' %>
+    </div>
+  </div>
+<% end %>

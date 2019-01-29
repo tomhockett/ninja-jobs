@@ -2,7 +2,7 @@ require 'test_helper'
 
 class JobsControllerTest < ActionDispatch::IntegrationTest
   def setup
-    @job = jobs(:one)
+    @job = jobs(:most_recent)
   end
 
   test "should redirect create when not logged in" do

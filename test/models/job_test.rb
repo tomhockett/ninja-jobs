@@ -28,4 +28,13 @@ class JobTest < ActiveSupport::TestCase
   test "order should be most recent first" do
     assert_equal jobs(:most_recent), Job.first
   end
+
+  # TODO: Fix this test
+  # test "users associated jobs should be deleted" do
+  #   @user.save
+  #   @user.jobs.create!(title: "A job", description: "I am a job.")
+  #   assert_difference 'Job.count', -1 do
+  #     @user.destroy
+  #   end
+  # end
 end
