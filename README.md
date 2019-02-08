@@ -1,3 +1,5 @@
 # Ninja Jobs!
 
-A job board with a Rails backend and Bulma CSS for the front.
+Rails CRUD app for Ninjas looking for jobs. 🙄
+
+## 👨🏻‍💻 I hack on this from time-to-time 👨🏻‍💻
