@@ -6,6 +6,7 @@ ruby '2.5.3'
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bulma-rails', '~> 0.7.2'
+gem "nokogiri", ">= 1.10.4"
 gem 'coffee-rails', '~> 4.2'
 gem 'faker', '~> 1.9'
 gem 'font-awesome-sass', '~> 5.4.1'
