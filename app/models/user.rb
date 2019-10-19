@@ -58,7 +58,6 @@ class User < ApplicationRecord
     UserMailer.account_activation(self).deliver_now
   end
 
-
   private
 
   # Converts email to all lower-case
@@ -71,5 +70,4 @@ class User < ApplicationRecord
     self.activation_token = User.new_token
     self.activation_digest = User.digest(activation_token)
   end
-
 end
